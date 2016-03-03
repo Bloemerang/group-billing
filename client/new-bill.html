@@ -1,0 +1,15 @@
+<ion-view view-title="New Bill">
+  <ion-content ng-controller="BillsCtrl">
+    <form ng-submit="addBill(amount, period); amount = ''; period = '';">
+      <div class="list">
+        <label class="item item-input">
+          <input type="tel" ng-model="amount" placeholder="Amount">
+        </label>
+        <label class="item item-input">
+          <input type="month" ng-model="period" placeholder="Billing Period">
+        </label>
+      </div>
+      <button type="submit" class="button button-positive button-block">Submit</button>
+    </form>
+  </ion-content>
+</ion-view>
