@@ -16,7 +16,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
     url: '/overview'
     views: 'tab-overview':
       templateUrl: 'client/overview.html'
-      controller: 'TestCtrl'
+      controller: 'OverviewCtrl'
   $stateProvider.state 'tab.bills',
     url: '/bills'
     views: 'tab-bills':

@@ -20,3 +20,6 @@ coffeescript
 angular
 driftyco:ionic
 momentjs:moment
+accounts-google
+service-configuration
+force-ssl
