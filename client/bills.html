@@ -2,10 +2,10 @@
   <ion-nav-buttons side="secondary">
     <a ng-href="#/bills/new"><button class="button">New</button></a>
   </ion-nav-buttons>
-  <ion-content ng-controller="BillsCtrl" class="padding">
+  <ion-content class="padding" ng-if="main.loggedIn">
     <ion-list>
-      <ion-item ng-repeat="bill in bills">
-        {{billDate(bill) | date:'MMMM yyyy' }} - {{ bill.amount | currency }}
+      <ion-item ng-repeat="bill in ctrl.bills">
+        {{ctrl.billDate(bill) | date:'MMMM yyyy' }} - {{ bill.amount | currency }}
       </ion-item>
     </ion-list>
   </ion-content>

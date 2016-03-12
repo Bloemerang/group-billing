@@ -1,17 +1,21 @@
 app = angular.module 'GroupBilling'
 
-app.controller 'BillsCtrl', ['$scope', '$meteor', '$ionicHistory',
-  ($scope, $meteor, $ionicHistory) ->
-    $scope.bills = $meteor.collection Meteor.App.Bills
 
-    $scope.billDate = (bill) ->
-      new Date(bill.period.year, bill.period.month)
+BillsCtrl = ($scope, $reactive) ->
+  $reactive(this).attach $scope
 
-    $scope.addBill = (amount, period) ->
-      $scope.bills.push
-        amount: parseFloat(amount)
-        period:
-          year:  period.getFullYear()
-          month: period.getMonth()
-      $ionicHistory.goBack()
-]
+  @helpers
+    bills: ->
+      Meteor.App.Bills.find()
+
+BillsCtrl.prototype.billDate = (bill) ->
+  new Date(bill.period.year, bill.period.month)
+
+BillsCtrl.prototype.addBill = (amount, period) ->
+  Meteor.App.Bills.insert
+    amount: parseFloat(amount)
+    period:
+      year:  period.getFullYear()
+      month: period.getMonth()
+
+app.controller 'BillsCtrl', ['$scope', '$reactive', BillsCtrl]

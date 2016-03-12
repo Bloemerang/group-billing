@@ -1,6 +1,6 @@
 <ion-view view-title="New Bill">
-  <ion-content ng-controller="BillsCtrl">
-    <form ng-submit="addBill(amount, period); amount = ''; period = '';">
+  <ion-content ng-if="main.loggedIn">
+    <form ng-submit="ctrl.addBill(amount, period); amount = ''; period = '';">
       <div class="list">
         <label class="item item-input">
           <input type="tel" ng-model="amount" placeholder="Amount">

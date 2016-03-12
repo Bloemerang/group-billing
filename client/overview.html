@@ -1,9 +1,6 @@
-<ion-view view-title="Overview" ng-controller="OverviewCtrl">
-  <ion-nav-buttons side="primary">
-    <button ng-click="logIn()" ng-if="!loggedIn" class="button">Sign In</button>
-    <button ng-click="logOut()" ng-if="loggedIn" class="button">Sign Out</button>
-  </ion-nav-buttons>
-  <ion-content class="padding">
-    <p>{{text}}</p>
+<ion-view view-title="Overview">
+  <ion-content class="padding" ng-if="main.loggedIn">
+    <p>{{overview.text}}</p>
+    <p ng-if="main.loggedIn">Logged in</p>
   </ion-content>
 </ion-view>
