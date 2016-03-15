@@ -1,6 +1,6 @@
 <ion-view view-title="Overview">
-  <ion-content class="padding" ng-if="main.loggedIn">
+  <ion-content class="padding">
     <p>{{overview.text}}</p>
-    <p ng-if="main.loggedIn">Logged in</p>
+    <p ng-if="$auth.currentUser">Logged in</p>
   </ion-content>
 </ion-view>

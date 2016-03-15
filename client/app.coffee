@@ -1,4 +1,8 @@
-app = angular.module 'GroupBilling', ['angular-meteor', 'ionic']
+app = angular.module 'GroupBilling', [
+  'angular-meteor',
+  'angular-meteor.auth'
+  'ionic'
+]
 
 #onReady = ->
 #  angular.bootstrap document, ['GroupBilling']
@@ -12,6 +16,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
   $stateProvider.state 'tab',
     abstract: true
     templateUrl: 'client/tabs.html'
+    resolve: ['$auth', ($auth) -> $auth.requireUser()]
   $stateProvider.state 'tab.overview',
     url: '/overview'
     views: 'tab-overview':
@@ -34,24 +39,32 @@ app.config ($stateProvider, $urlRouterProvider) ->
     url: '/payments'
     views: 'tab-payments':
       templateUrl: 'client/payments.html'
+  $stateProvider.state 'login',
+    url: '/login'
+    templateUrl: 'client/login.html'
+    controller: 'MainCtrl as main'
 
   $urlRouterProvider.otherwise 'overview'
 
-mainCtrl = ($scope, $reactive) ->
-  $reactive(this).attach $scope
+app.run ['$rootScope', '$state', ($rootScope, $state) ->
+  $rootScope.$on '$stateChangeError', (event, toState, toParams, fromState, fromParams, error) ->
+    $state.go 'login' if error is 'AUTH_REQUIRED'
+]
 
-  @helpers
-    loggedIn: -> Meteor.userId()?
-
-mainCtrl.prototype.logIn = ->
-  Meteor.loginWithGoogle requestPermissions: ['email'], (err) ->
-    if err
-      if err.error is 'unauthorized-email'
-        alert 'Unauthorized email'
+app.controller 'MainCtrl', ['$scope', '$reactive', '$state', ($scope, $reactive, $state) ->
+  @logIn = ->
+    Meteor.loginWithGoogle requestPermissions: ['email'], (err) ->
+      if err
+        if err.error is 'unauthorized-email'
+          alert 'Unauthorized email'
+        else
+          alert 'Unknown login error'
       else
-        alert 'Unknown login error'
+        $state.go 'tab.overview'
 
-mainCtrl.prototype.logOut = ->
-  Meteor.logout()
+  @logOut = ->
+    Meteor.logout()
+    $state.go 'login'
 
-app.controller 'MainCtrl', ['$scope', '$reactive', mainCtrl]
+  $reactive(this).attach $scope
+]

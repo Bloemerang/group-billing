@@ -102,6 +102,7 @@
         <item url="file://$USER_HOME$/.meteor/packages/jquery/1.11.4/web.browser/post.js" />
         <item url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.11.2/web.browser/meteor/export.js" />
         <item url="file://$USER_HOME$/.meteor/packages/lai_collection-extensions/0.1.4/web.browser/packages/lai_collection-extensions.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/angular-meteor-auth/0.2.1/web.browser/angular-meteor-auth.js" />
         <item url="file://$USER_HOME$/.meteor/packages/launch-screen/1.0.4/web.browser/default-behavior.js" />
         <item url="file://$USER_HOME$/.meteor/packages/launch-screen/1.0.4/web.browser/mobile-launch-screen.js" />
         <item url="file://$USER_HOME$/.meteor/packages/logging/1.0.8/web.browser/logging.js" />
@@ -246,6 +247,7 @@
       <root url="file://$USER_HOME$/.meteor/packages/jquery/1.11.4/web.browser/post.js" />
       <root url="file://$USER_HOME$/.meteor/packages/momentjs_moment/2.11.2/web.browser/meteor/export.js" />
       <root url="file://$USER_HOME$/.meteor/packages/lai_collection-extensions/0.1.4/web.browser/packages/lai_collection-extensions.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/angular-meteor-auth/0.2.1/web.browser/angular-meteor-auth.js" />
       <root url="file://$USER_HOME$/.meteor/packages/launch-screen/1.0.4/web.browser/default-behavior.js" />
       <root url="file://$USER_HOME$/.meteor/packages/launch-screen/1.0.4/web.browser/mobile-launch-screen.js" />
       <root url="file://$USER_HOME$/.meteor/packages/logging/1.0.8/web.browser/logging.js" />
