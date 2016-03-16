@@ -63,7 +63,9 @@ app.controller 'MainCtrl', ['$scope', '$reactive', '$state', ($scope, $reactive,
 
   @logOut = ->
     Meteor.logout()
-    $state.go 'login'
+    # Force a reload if we're already on the login page; otherwise we won't re-render state
+    # dependent on the login state.
+    $state.go 'login', {}, reload: yes
 
   $reactive(this).attach $scope
 ]
