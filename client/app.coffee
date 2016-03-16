@@ -42,7 +42,6 @@ app.config ($stateProvider, $urlRouterProvider) ->
   $stateProvider.state 'login',
     url: '/login'
     templateUrl: 'client/login.html'
-    controller: 'MainCtrl as main'
 
   $urlRouterProvider.otherwise 'overview'
 

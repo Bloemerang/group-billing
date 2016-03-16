@@ -1,6 +1,7 @@
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <meta name="viewport"
+        content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>Group Billing</title>
 </head>
 
@@ -8,7 +9,7 @@
   <ion-nav-bar class="bar-positive">
     <ion-nav-back-button></ion-nav-back-button>
     <ion-nav-buttons side="primary">
-      <button ng-click="main.logOut()" ng-if="$auth.currentUser" class="button">Sign Out</button>
+      <button ng-click="main.logOut()" ng-show="$auth.currentUser" class="button">Sign Out</button>
     </ion-nav-buttons>
   </ion-nav-bar>
   <ion-nav-view></ion-nav-view>

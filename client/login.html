@@ -1,6 +1,7 @@
-<ion-view>
+<ion-view view-title="Login">
   <ion-content class="padding">
-    <button ng-click="main.logIn()" class="button button-clear button-positive">
+    <button ng-click="main.logIn()" ng-show="!$auth.currentUser"
+            class="button button-clear button-positive">
       Please Log In
     </button>
   </ion-content>
